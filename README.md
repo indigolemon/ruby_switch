@@ -62,3 +62,7 @@ file, and base the name on what is returned by the above command.
 The other file in this folder is named `reset.sh`. The values set in here should
 reflect your preferred default values. This script is executed when you leave a
 git repository to return your setting to normal.
+
+#### License
+
+This is licensed under GNU GPL version 3: [http://www.gnu.org/licenses/gpl.html](http://www.gnu.org/licenses/gpl.html). See COPYING for more information.

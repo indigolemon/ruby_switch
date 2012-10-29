@@ -3,6 +3,9 @@
 Ruby Switch allows you to easily switch your Ruby Version and Gem Home based on
 your currently active git repository.
 
+It makes use of rbenv, which can be found here:
+[https://github.com/sstephenson/rbenv](https://github.com/sstephenson/rbenv)
+
 ### Setting up
 You will need to edit your bashrc to enable this to work. Example below:
 
@@ -18,11 +21,11 @@ You will need to edit your bashrc to enable this to work. Example below:
 		      source $HOME/.ruby_projects/$project_name.sh
 		    else
 		      source $HOME/.ruby_projects/reset.sh
-		    fi  
+		    fi
 		  else
 		    source $HOME/.ruby_projects/reset.sh
-		  fi  
-		fi  
+		  fi
+		fi
 	}
 
 	PROMPT_COMMAND=set_bash_prompt

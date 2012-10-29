@@ -7,4 +7,3 @@ GEM_HOME=/path/to/gem_home
 # Don't edit below here
 rbenv rehash
 PATH=$PATH:$GEM_HOME/bin
-echo "All set!"

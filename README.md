@@ -12,7 +12,7 @@ You will need to edit your bashrc to enable this to work. Example below:
 	set_bash_prompt ()
 	{
 		# Setup ruby environment if required
-		project_name="$(git remote -v 2> /dev/null | head -n1 | awk '{print $2}' | sed 's/.*\///' | sed 's/\.git//')"
+		project_name="$(git remote -v 2> /dev/null | head -n1 | awk '{print $2}' | sed 's/.*\///' | sed 's/.*\://' | sed 's/\.git//')"
 
 		if [[ "$last_project_name" != "$project_name" ]]; then
 		  last_project_name=$project_name
@@ -51,7 +51,7 @@ Inside here will be two files: `reset.sh` and `sample.sh`.
 This works based on the git project name. To find this out, navigate to a git
 project in the terminal, and once inside the main directory execute the following:
 
-	$ git remote -v 2> /dev/null | head -n1 | awk '{print $2}' | sed 's/.*\///' | sed 's/\.git//'
+	$ git remote -v 2> /dev/null | head -n1 | awk '{print $2}' | sed 's/.*\///' | sed 's/.*\://' | sed 's/\.git//'
 
 This will return the string we will use to identify this project. Based on this,
 we can then add a script to the `~/.ruby_projects` folder to execute commands

@@ -6,11 +6,37 @@ your currently active git repository.
 It makes use of rbenv, which can be found here:
 [https://github.com/sstephenson/rbenv](https://github.com/sstephenson/rbenv)
 
+It also assumes you are using git to manage your projects.
+
 ### Setting up
-You will need to edit your bashrc to enable this to work. Example below:
+You will need to edit your bashrc to enable this to work. An example from my
+`bashrc` is below. This sets your prompt to show the current branch if you
+are in a git repository, and colour codes it based on the repository status.
+
+It also looks for a script relating to the repository which it will then execute
+to setup the specified Ruby environment. If no such script can be found it will
+ensure your settings are restored to their defaults.
+
+Note: please remove any other `PS1=` lines if you use the below.
 
 	set_bash_prompt ()
 	{
+		# setup git status for bash prompt
+		git_status="$(git status 2> /dev/null)"
+
+		if [[ ${git_status} =~ "working directory clean" ]]; then
+			state="\001\e[0;32m\002" # Green
+		elif [[ ${git_status} =~ "Changes to be committed" ]]; then
+			state="\001\e[1;33m\002" # Yellow
+		else
+			state="\001\e[0;31m\002" # Red
+		fi
+
+		TITLEBAR='\[\e]0;\u@\h - \w\a\]'
+		PS1="${TITLEBAR}[\u@\h \W${state}\$(git branch 2>/dev/null | grep -e '\* ' | sed 's/^..\(.*\)/ [\1]/')${RESET}]\$ "
+
+		unset git_status
+
 		# Setup ruby environment if required
 		project_name="$(git remote -v 2> /dev/null | head -n1 | awk '{print $2}' | sed 's/.*\///' | sed 's/.*\://' | sed 's/\.git//')"
 

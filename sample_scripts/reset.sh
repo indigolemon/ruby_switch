@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rbenv shell 1.9.3-p286
+rbenv shell --unset
 rbenv rehash
-GEM_HOME=""
+GEM_HOME=$DEFAULT_GEM_HOME
 PATH=$DEFAULT_PATH:$GEM_HOME/bin

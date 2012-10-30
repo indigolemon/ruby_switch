@@ -30,10 +30,11 @@ You will need to edit your bashrc to enable this to work. Example below:
 
 	PROMPT_COMMAND=set_bash_prompt
 
-You will also need to store your original system PATH so that it can be reverted
-when changing Gem Home. The scripts expect to find a variable named `DEFAULT_PATH`
-to allow this to happen. This can be accomplished by adding the following lines to
-your bash_profile after PATH and GEM_HOME are set to defaults:
+You will also need to store your original system `PATH` and `GEM_HOME` so that they
+can be reverted when changing Gem Home. The scripts expect to find variables named
+`DEFAULT_PATH` and `DEFAULT_GEM_HOME` to allow this to happen. This can be
+accomplished by adding the following lines to your `bash_profile` after `PATH` and
+`GEM_HOME` are set to defaults:
 
 	# Save default Path to enable clean Ruby switching
 	DEFAULT_PATH=$PATH

@@ -34,12 +34,14 @@ You will also need to store your original system `PATH` and `GEM_HOME` so that t
 can be reverted when changing Gem Home. The scripts expect to find variables named
 `DEFAULT_PATH` and `DEFAULT_GEM_HOME` to allow this to happen. This can be
 accomplished by adding the following lines to your `bash_profile` after `PATH` and
-`GEM_HOME` are set to defaults:
+`GEM_HOME` are set to defaults, and finally that Gem Home is added to path:
 
 	# Save default Path to enable clean Ruby switching
 	DEFAULT_PATH=$PATH
 	# Save default Gem Home to enable clean Ruby switching
 	DEFAULT_GEM_HOME=$GEM_HOME
+	# Now add default Gem Home to Path
+	PATH=$DEFAULT_PATH:$GEM_HOME/bin
 
 Next, you will need to create the relevant directory to hold the switching scripts.
 Assuming you are within this repository, run the following command:

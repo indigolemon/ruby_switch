@@ -79,7 +79,7 @@ This works based on the git project name. To find this out, navigate to a git pr
 
 	$ git remote -v 2> /dev/null | head -n1 | awk '{print $2}' | sed 's/.*\///;s/.*\://;s/\.git//'
 
-In order to make this easier, you can alias this `.bashrc` or `.bash_profile` like so (note the escape on the $):
+In order to make this easier, you can alias this in`.bashrc` or `.bash_profile` like so (note the escape on the $):
 
 	alias repo_name="git remote -v 2> /dev/null | head -n1 | awk '{print \$2}' | sed 's/.*\///;s/.*\://;s/\.git//'"
 

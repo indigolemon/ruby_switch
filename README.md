@@ -51,7 +51,12 @@ Note: please remove any other `PS1=` lines if you use the below.
 
 	PROMPT_COMMAND=set_bash_prompt
 
-You will also need to store your original system `PATH` and `GEM_HOME` so that they can be reverted when changing Gem Home. The scripts expect to find variables named `DEFAULT_PATH` and `DEFAULT_GEM_HOME` to allow this to happen. This can be accomplished by adding the following lines to your `bash_profile` after `PATH` and `GEM_HOME` are set to defaults, and finally that Gem Home is added to path:
+You will also need to store your original system `PATH` and `GEM_HOME` so that they can be reverted when changing Gem Home. The scripts expect to find variables named `DEFAULT_PATH` and `DEFAULT_GEM_HOME` to allow this to happen. I use Fedora, and this can be accomplished by adjusting your `bash_profile` to look like the following (editing as required):
+
+	PATH=$PATH:$HOME/.rbenv/bin
+	GEM_HOME=/path/to/default/gems
+
+	eval "$(rbenv init -)"
 
 	# Save default Path to enable clean Ruby switching
 	DEFAULT_PATH=$PATH
@@ -59,6 +64,8 @@ You will also need to store your original system `PATH` and `GEM_HOME` so that t
 	DEFAULT_GEM_HOME=$GEM_HOME
 	# Now add default Gem Home to Path
 	PATH=$DEFAULT_PATH:$GEM_HOME/bin
+
+NOTE: If you use Ubuntu, the above needs to be added at the bottom of your `.bashrc` to function correctly. `PATH` seems to be overwritten if tweaked in `.bash_profile`.
 
 Next, you will need to create the relevant directory to hold the switching scripts. Assuming you are within this repository, run the following command:
 

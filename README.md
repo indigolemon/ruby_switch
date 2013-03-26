@@ -12,6 +12,8 @@ You will need to edit your `bashrc` to enable this to work. An example from my `
 
 It also looks for a script relating to the repository which it will then execute to setup the specified Ruby environment. If no such script can be found it will ensure your settings are restored to their defaults.
 
+You will also need to store your original system `PATH` and `GEM_HOME` so that they can be reverted when changing Gem Home. The scripts expect to find variables named `DEFAULT_PATH` and `DEFAULT_GEM_HOME` to allow this to happen. This is done after the function to setup the command prompt.
+
 Note: please remove any other `PS1=` lines if you use the below.
 
 	set_bash_prompt ()
@@ -51,8 +53,6 @@ Note: please remove any other `PS1=` lines if you use the below.
 
 	PROMPT_COMMAND=set_bash_prompt
 
-You will also need to store your original system `PATH` and `GEM_HOME` so that they can be reverted when changing Gem Home. The scripts expect to find variables named `DEFAULT_PATH` and `DEFAULT_GEM_HOME` to allow this to happen. I use Fedora, and this can be accomplished by adjusting your `bash_profile` to look like the following (editing as required):
-
 	PATH=$PATH:$HOME/.rbenv/bin
 	GEM_HOME=/path/to/default/gems
 
@@ -65,7 +65,11 @@ You will also need to store your original system `PATH` and `GEM_HOME` so that t
 	# Now add default Gem Home to Path
 	PATH=$DEFAULT_PATH:$GEM_HOME/bin
 
-NOTE: If you use Ubuntu, the above needs to be added at the bottom of your `.bashrc` to function correctly. `PATH` seems to be overwritten if tweaked in `.bash_profile`.
+	export PATH
+	export GEM_HOME
+	export DEFAULT_PATH
+	export DEFAULT_GEM_HOME
+
 
 Next, you will need to create the relevant directory to hold the switching scripts. Assuming you are within this repository, run the following command:
 

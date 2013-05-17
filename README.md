@@ -70,9 +70,9 @@ Note: please remove any other `PS1=` lines if you use the below.
 	export DEFAULT_PATH
 	export DEFAULT_GEM_HOME
   # Default ruby build numbers
-  export RUBY18="1.8.7-p370-gcc4.6"
-  export RUBY19="1.9.3-p392"
-  export RUBY20="2.0.0-p195"
+	export RUBY18="1.8.7-p370-gcc4.6"
+	export RUBY19="1.9.3-p392"
+	export RUBY20="2.0.0-p195"
 
 
 Next, you will need to create the relevant directory to hold the switching scripts. Assuming you are within this repository, run the following command:

@@ -69,7 +69,7 @@ Note: please remove any other `PS1=` lines if you use the below.
 	export GEM_HOME
 	export DEFAULT_PATH
 	export DEFAULT_GEM_HOME
-  # Default ruby build numbers
+	# Default ruby build numbers
 	export RUBY18="1.8.7-p370-gcc4.6"
 	export RUBY19="1.9.3-p392"
 	export RUBY20="2.0.0-p195"
